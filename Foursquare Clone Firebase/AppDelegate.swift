@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        rememberLogIn()
+        FirebaseApp.configure()
         return true
     }
 
@@ -42,5 +45,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+    func rememberLogIn(){
+        let user: String? = UserDefaults.standard.string(forKey: "userLoggedIn")
+        
+        if user != nil {
+            
+            let board: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let navigationController = board.instantiateViewController(withIdentifier: "NavigationVC") as! UINavigationController
+            
+            window?.rootViewController = navigationController
+            
+            
+        }
+        
+    }
 }
 
