@@ -1,0 +1,6 @@
+framework module Pods_Foursquare_Clone_Firebase {
+  umbrella header "Pods-Foursquare Clone Firebase-umbrella.h"
+
+  export *
+  module * { export * }
+}
